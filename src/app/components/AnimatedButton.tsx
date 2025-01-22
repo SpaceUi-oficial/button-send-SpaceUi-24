@@ -8,19 +8,16 @@ interface AnimatedButtonProps {
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({ onClick }) => {
-  const [isAnimating, setIsAnimating] = useState(false);
   const controls = useAnimation();
   const backgroundControls = useAnimation();
   const text = "Send Message";
 
   const handleHoverStart = async () => {
-    setIsAnimating(true);
     controls.start("hover");
     backgroundControls.start("hover");
   };
 
   const handleHoverEnd = async () => {
-    setIsAnimating(false);
     controls.start("initial");
     backgroundControls.start("initial");
   };
